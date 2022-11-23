@@ -1,14 +1,35 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-// function Greeting() {
-//   return (
-//     <div>
-//       <h1>Hard work always pays-off ! </h1>
-//     </div>
-//   );
-// }
+function Greeting() {
+  return (
+    <div>
+      <Dedication />
+      <AimBig />
+    </div>
+  );
+}
 
+const Dedication = () => (
+  <h2 className="dedication">
+    Dedication is perseverance is the key to success
+  </h2>
+);
+
+const AimBig = () => {
+  return (
+    <section>
+      <p>We got to aim big to achieve big!</p>
+      <input
+        type="button"
+        value="aim big"
+        onClick={() => console.log("Aim Big!!!")}
+      />
+    </section>
+  );
+};
+
+/*
 // We are basically rendering the JSX !!!
 const Greeting = () =>
   React.createElement(
@@ -16,6 +37,7 @@ const Greeting = () =>
     {},
     React.createElement("h1", {}, "Welcome to the world of JSX")
   );
+*/
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
