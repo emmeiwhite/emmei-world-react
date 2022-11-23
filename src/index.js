@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
+/*
 function Greeting() {
   return (
     <div>
@@ -28,6 +29,7 @@ const AimBig = () => {
     </section>
   );
 };
+*/
 
 /*
 // We are basically rendering the JSX !!!
@@ -39,10 +41,27 @@ const Greeting = () =>
   );
 */
 
+// BookList (we will render a list of Books) - Reusuablity, Structuring app into lego blocks - components
+
+const Book = () => (
+  <article>
+    <h1>BookName</h1>
+    <img src="" alt="Book photo goes here" />
+    <p>Book description goes here</p>
+    <p>Book Author goes here</p>
+  </article>
+);
+const BookList = () => (
+  <section>
+    <Book />
+    <Book />
+    <Book />
+  </section>
+);
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <Greeting />
+    <BookList />
   </React.StrictMode>
 );
