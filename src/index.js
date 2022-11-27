@@ -124,17 +124,39 @@ const UserList = () => {
   return (
     <section className="userlist">
       {users.map((user) => {
-        return <User {...user} />;
+        return <User key={user.id} {...user} />;
       })}
     </section>
   );
 };
 
 const User = ({ id, title, body }) => {
+  const handleClick = (e) => {
+    console.log(e.target);
+  };
+
+  const handleMouseOver = (e) => {
+    console.log("Mouse hovered on the User Component");
+  };
+
+  //  Getting value on Event Handler
+  const handleClickWithValue = (title) => {
+    console.log(title);
+  };
+
   return (
-    <article className="user">
+    <article className="user" onMouseOver={handleMouseOver}>
       <h1>{title}</h1>
       <p>{body}</p>
+      <div className="btns-container">
+        <button className="btn" onClick={handleClick}>
+          Handler Btn{" "}
+        </button>
+
+        <button className="btn" onClick={() => handleClickWithValue(title)}>
+          Get Title{" "}
+        </button>
+      </div>
     </article>
   );
 };

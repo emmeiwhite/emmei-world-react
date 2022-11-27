@@ -90,6 +90,26 @@ p {
   color: #000;
 }
 
+.btns-container {
+  display: flex;
+  justify-content: space-between;
+}
+.btn {
+  padding: 0.5rem 0.75rem;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  background-color: indianred;
+  color: #fff;
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+.btn:hover {
+  transform: scale(101%);
+  cursor: pointer;
+}
+
 @media (min-width: 640px) {
   .userlist {
     grid-template-columns: repeat(2, 1fr);
