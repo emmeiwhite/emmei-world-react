@@ -60,6 +60,25 @@ const book2 = {
   img: "https://m.media-amazon.com/images/I/31+HzMd+yZL._SX311_BO1,204,203,200_.jpg",
 };
 
+const books = [
+  {
+    id: 1,
+    author: "Mahesh poonawala",
+    price: "320",
+    title: "The important of time",
+    alt: "time is crucial",
+    img: "https://m.media-amazon.com/images/I/51Zu0ZwT0jL._SX320_BO1,204,203,200_.jpg",
+  },
+  {
+    id: 2,
+    author: "Kiran Nagawara",
+    price: "150",
+    title: "Life and rise",
+    alt: "life is not to be wasted",
+    img: "https://m.media-amazon.com/images/I/31+HzMd+yZL._SX311_BO1,204,203,200_.jpg",
+  },
+];
+
 /** LET'S Iterate over each item in an Array (Later we will get it from an API and make use of this) */
 
 const users = [
@@ -102,21 +121,34 @@ const users = [
   },
 ];
 /** Props are special in React.  */
-const Book = ({ author, title, price, img, alt }) => (
+const Book = ({ id, author, title, price, img, alt, getBook }) => (
   <article className="book">
     <img src={img} alt={alt} className="book-img" />
     <h3 className="book-name">{title}</h3>
     <p className="book-author">{author}</p>
     <span className="book-prize">Rs {price} /-</span>
+
+    <button className="btn" onClick={() => getBook(id)}>
+      Book Info
+    </button>
   </article>
 );
 
-const BookList = () => (
-  <section className="booklist-container">
-    <Book {...book1} />
-    <Book {...book2} />
-  </section>
-);
+const BookList = () => {
+  const getBook = (id) => {
+    const book = books.find((book) => {
+      return book.id === id;
+    });
+    console.log(book);
+  };
+  return (
+    <section className="booklist-container">
+      {books.map((book) => {
+        return <Book {...book} key={book.id} getBook={getBook} />;
+      })}
+    </section>
+  );
+};
 
 // USERS
 
@@ -157,9 +189,56 @@ const User = ({ id, title, body }) => {
           Get Title{" "}
         </button>
       </div>
+
+      <h3 style={{ color: "#000", margin: "2rem 0rem" }}>Kashmir Mountains</h3>
+      <img
+        src="./mountains.jpeg"
+        alt="Mountains"
+        style={{ objectFit: "cover", maxWidth: "300px" }}
+      />
     </article>
+  );
+};
+
+const doctors = [
+  { id: 1, doctorName: "Dr. Rouf", specialization: "vatenary" },
+  { id: 2, doctorName: "Dr. Rafia", specialization: "Dental" },
+  { id: 3, doctorName: "Dr. Shifa", specialization: "Heart Specialist" },
+  { id: 4, doctorName: "Dr. Anisa", specialization: "ENT" },
+];
+const DoctorList = () => {
+  return (
+    <section>
+      {doctors.map((doctor) => {
+        return <Doctor key={doctor.id} {...doctor} />;
+      })}
+    </section>
+  );
+};
+
+// Components are independent by default
+const Doctor = ({ doctorName, specialization }) => {
+  console.log(doctorName);
+  return (
+    <section
+      style={{ color: "white", border: "1px solid white", padding: "2rem" }}
+    >
+      <h1>Doctor Details</h1>
+      <h4>Name: {doctorName}</h4>
+      <h4>Specialization: {specialization}</h4>
+      <button
+        className="btn"
+        onClick={() => {
+          console.log(doctorName);
+        }}
+      >
+        Doctor Name
+      </button>
+    </section>
   );
 };
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(<React.StrictMode>{<UserList />}</React.StrictMode>);
+// root.render(<React.StrictMode>{<UserList />}</React.StrictMode>);
+// root.render(<React.StrictMode>{<DoctorList />}</React.StrictMode>);
+root.render(<React.StrictMode>{<BookList />}</React.StrictMode>);
