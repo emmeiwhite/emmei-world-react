@@ -31,6 +31,7 @@ p {
   align-items: center;
   margin-bottom: 2rem;
   max-width: 350px;
+  position: relative;
   /* opacity: 0.8; */
 }
 
@@ -108,6 +109,18 @@ p {
 .btn:hover {
   transform: scale(101%);
   cursor: pointer;
+}
+
+.book-number {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 1rem 0.75rem 1rem 0.25rem;
+
+  background-color: red;
+  color: black;
+  clip-path: polygon(0% 0%, 100% 0%, 75% 100%, 0% 100%, 0 0);
+  font-size: 1rem;
 }
 
 @media (min-width: 640px) {

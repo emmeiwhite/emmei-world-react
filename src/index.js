@@ -138,8 +138,9 @@ const users = [
   },
 ];
 /** Props are special in React.  */
-const Book = ({ id, author, title, price, img, alt, getBook }) => (
+const Book = ({ id, author, title, price, img, alt, getBook, index }) => (
   <article className="book">
+    <h2 className="book-number">#{index}</h2>
     <img src={img} alt={alt} className="book-img" />
     <h3 className="book-name">{title}</h3>
     <p className="book-author">{author}</p>
@@ -160,8 +161,11 @@ const BookList = () => {
   };
   return (
     <section className="booklist-container">
-      {books.map((book) => {
-        return <Book {...book} key={book.id} getBook={getBook} />;
+      <h1 style={{ textAlign: "center", marginBottom: "2rem" }}>
+        Books are a source of light
+      </h1>
+      {books.map((book, index) => {
+        return <Book {...book} index={index} key={book.id} getBook={getBook} />;
       })}
     </section>
   );
@@ -223,6 +227,7 @@ const doctors = [
   { id: 3, doctorName: "Dr. Shifa", specialization: "Heart Specialist" },
   { id: 4, doctorName: "Dr. Anisa", specialization: "ENT" },
 ];
+
 const DoctorList = () => {
   return (
     <section>
