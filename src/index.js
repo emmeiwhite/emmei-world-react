@@ -1,6 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
+import img from "./images/img.jpeg";
+import img2 from "./images/img2.jpg";
+import img3 from "./images/img3.png";
+
 import "./index.css";
 
 /*
@@ -49,7 +53,8 @@ const book1 = {
   price: "320",
   title: "The important of time",
   alt: "time is crucial",
-  img: "https://m.media-amazon.com/images/I/51Zu0ZwT0jL._SX320_BO1,204,203,200_.jpg",
+  // img: "https://m.media-amazon.com/images/I/51Zu0ZwT0jL._SX320_BO1,204,203,200_.jpg",
+  img,
 };
 
 const book2 = {
@@ -57,7 +62,8 @@ const book2 = {
   price: "150",
   title: "Life and rise",
   alt: "life is not to be wasted",
-  img: "https://m.media-amazon.com/images/I/31+HzMd+yZL._SX311_BO1,204,203,200_.jpg",
+  // img: "https://m.media-amazon.com/images/I/31+HzMd+yZL._SX311_BO1,204,203,200_.jpg",
+  img2,
 };
 
 const books = [
@@ -67,15 +73,26 @@ const books = [
     price: "320",
     title: "The important of time",
     alt: "time is crucial",
-    img: "https://m.media-amazon.com/images/I/51Zu0ZwT0jL._SX320_BO1,204,203,200_.jpg",
+    // img: "https://m.media-amazon.com/images/I/51Zu0ZwT0jL._SX320_BO1,204,203,200_.jpg",
+    img: img,
   },
   {
     id: 2,
     author: "Kiran Nagawara",
     price: "150",
-    title: "Life and rise",
+    title: "Life and transformation",
     alt: "life is not to be wasted",
-    img: "https://m.media-amazon.com/images/I/31+HzMd+yZL._SX311_BO1,204,203,200_.jpg",
+    // img: "https://m.media-amazon.com/images/I/31+HzMd+yZL._SX311_BO1,204,203,200_.jpg",
+    img: img2,
+  },
+  {
+    id: 3,
+    author: "Tumbakh Karamandala",
+    price: "300",
+    title: "Better now than never",
+    alt: "time never comes back",
+    // img: "https://m.media-amazon.com/images/I/41NmiyLR0dL._BG0,0,0,0_FMpng_AC_SY480_SX480_.jpg",
+    img: img3,
   },
 ];
 
